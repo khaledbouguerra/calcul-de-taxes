@@ -3,7 +3,7 @@
 </div>
 <div>
     
-   <span>Montant des taxes : {{ taxes-tht|currency: 'EUR':'symbol':undefined:'fr-FR'}} </span>
+   <span id="taxes">Montant des taxes : {{ taxes-tht|currency: 'EUR':'symbol':undefined:'fr-FR'}} </span>
    <br>
-   <span>Total : {{producsList?.ttc|currency: 'EUR':'symbol':undefined:'fr-FR'}}</span>   
+   <span id="total">Total : {{producsList?.ttc|currency: 'EUR':'symbol':undefined:'fr-FR'}}</span>   
 </div>

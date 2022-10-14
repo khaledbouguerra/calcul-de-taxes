@@ -7,7 +7,7 @@ import  {product} from '../core/models/product.model'
 })
 
 export class ProductService {
-products:any=[];
+products:product[]=[];
 private subject = new Subject<any>();
 
 
@@ -16,12 +16,11 @@ private subject = new Subject<any>();
     this.subject.next({products:this.products ,ttc:this.getTTC()});
 }
   addProduct($product:any){
-    console.log('$product',$product)
    let newProduct=new product($product)
    this.products.push(newProduct);
    this.sendMessage()
   }
-  get Products(){
+  get _products(){
    return this.subject.asObservable();
   }
   getTTC():number{

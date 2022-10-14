@@ -14,7 +14,7 @@ export class FacturePrintComponent implements OnInit {
   taxes:number=0;
   tht:number=0;
     ngOnInit(): void {
-    this.productService.Products
+    this.productService._products
     .subscribe(data=>{
       this.taxes=   data.products.reduce((acc:number,product:product)=>{
         return acc+ product.taxed
