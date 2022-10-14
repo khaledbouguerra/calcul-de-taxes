@@ -1,0 +1,9 @@
+<div *ngFor="let product of producsList?.products">
+    * {{product.quantity}} de {{product.name}} à {{product.price|currency: 'EUR':'symbol':undefined:'fr-FR'}} <span *ngIf="product.isImported">importé</span> :  {{product.taxed  |currency: 'EUR':'symbol':undefined:'fr-FR'}} TTC
+</div>
+<div>
+    
+   <span>Montant des taxes : {{ taxes-tht|currency: 'EUR':'symbol':undefined:'fr-FR'}} </span>
+   <br>
+   <span>Total : {{producsList?.ttc|currency: 'EUR':'symbol':undefined:'fr-FR'}}</span>   
+</div>

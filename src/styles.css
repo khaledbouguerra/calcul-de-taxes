@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootswatch/dist/yeti/bootstrap.css';
+/*@import '~font-awesome/css/font-awesome.css';*/
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+app-facture-print {
+    /* hide the printing component from @media screen */
+    display: none;
+  }
+  
+  @media print {
+    /* invert the display (show/hide) properties of the main */
+    /* aplication component and the printing component       */
+  
+    app-facture-print {
+      display: block;
+    }
+    .navbar-brand{
+        display: none;
+      }
+  
+    app-product {
+      display: none;
+    }
+
+    app-products-list {
+        display: none;
+      }
+    
+  }

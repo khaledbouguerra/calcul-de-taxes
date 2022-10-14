@@ -1,0 +1,61 @@
+<div class="card shadow" >
+    <h3 class="card-header">Produits</h3>
+    <div class="card-body">
+        <ul class="list-group" >
+
+            <li class="list-group-item" *ngFor="let product of producsList?.products" >
+     
+              
+
+
+
+                <div class="container" id="toPrint">
+                    <div class="row align-items-start">
+                        
+                      <div class="col-2">
+                        <span>Produit :  {{product.name}} </span>  
+                      </div>
+                      <div class="col-2">
+                        <span>Quantité :  {{product.quantity}} </span>  
+                      </div>
+
+                      <div class="col-3">
+                        <span>Categorie :  {{product.category.name}} </span>  
+                      </div>
+                      <div class="col-4">
+                        <span>Prix HT :  {{product.quantity * product.price|currency}}</span>
+                      </div>
+                      <div class="col-1">
+                        <button class="btn btn-danger btn-sm mx-3 float-right" >x</button>  
+                      </div>
+                    </div>
+                    </div>
+
+                
+            </li>
+
+        </ul>
+    </div>
+    <div class="container">
+        <div class="clearfix">
+            <span class="float-start"> <h3>  TTC : {{producsList?.ttc||0}} </h3></span>
+            <span class="float-end"> <button class="btn btn-success btn-sm mx-6 float-right" (click)="printOutPut()" >Imprimer</button></span>
+          </div>
+    <div class="row align-items-start">
+        <div class="col-10">
+        
+        </div>
+        
+        <div class="col-2">
+            
+        </div>
+    
+    </div> 
+    </div>
+</div>
+
+
+
+
+
+
