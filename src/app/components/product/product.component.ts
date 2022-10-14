@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder,FormGroup, FormArray, Validators } from "@angular/forms";
+import { Component } from '@angular/core';
+import { FormBuilder,FormGroup, Validators } from "@angular/forms";
 import { categories } from 'src/app/core/models/categories';
 import { Category } from 'src/app/core/interfaces/category';
 import { ProductService } from 'src/app/services/product.service';
@@ -8,26 +8,30 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit {
- product:any;
+export class ProductComponent  {
+
+ submitted=false;
   public productForm:FormGroup;
   public categories:Category[]=categories;
   constructor(public fb: FormBuilder, private productService:ProductService ) {
+    //creating the formBuilder with the needed form controles
     this.productForm= this.fb.group({
-      name:[''],
-      quantity:[''],
-      category:[''],
+      name:['',[Validators.required, Validators.minLength(4)]],
+      quantity:['',[Validators.required, Validators.min(1)]],
+      category:[categories[0],[Validators.required]],
       isImported:[''],
-      price:['']
+      price:['',[Validators.required,Validators.min(1)]]
     })
    }
-
-  ngOnInit(): void {
-
-  }
+// verify the integity of the form berfore submiting otherwise submit the form and print the facture
   onSubmit(){
-  console.log('saved product ', this.productForm.value);
-  this.productService.addProduct(this.productForm.value)
+    this.submitted=true
+    //testing if the form is valid or not
+  if(this.productForm.valid){
+    this.productService.addProduct(this.productForm.value)
+  }
+
+  
   }
 
 }

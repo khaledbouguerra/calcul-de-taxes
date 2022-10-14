@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { product } from 'src/app/core/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -6,22 +8,25 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './products-list.component.html',
   styleUrls: ['./products-list.component.css']
 })
-export class ProductsListComponent implements OnInit {
+export class ProductsListComponent implements OnInit, OnDestroy {
 
-  constructor(private productService:ProductService) { }
-producsList:any;
+  constructor(private productService: ProductService) { }
+  producsList: any = [];
+  subscription!: Subscription;
   ngOnInit(): void {
-this.productService._products
-.subscribe(data=>{
-  this.producsList=data;
-})
-}
-printOutPut(){
-/*   let divContents = document.getElementById("toPrint")?.innerHTML||'';
-let printWindow = window.open('', '', 'height=200,width=400');
-printWindow?.document.write(divContents);
-divContents=''; */
-window.print();
-}
+    this.subscription = this.productService._products.subscribe(data => {
+      this.producsList = data;
+      console.log(' this.producsList', this.producsList);
+    })
+  }
+  printOutPut() {
+    window.print();
+  }
 
+  deleteProduct(product: product) {
+    this.productService.deleteProduct(product)
+  }
+  ngOnDestroy(): void {
+    //this.subscription.unsubscribe()
+  }
 }

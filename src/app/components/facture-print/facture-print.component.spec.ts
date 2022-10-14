@@ -1,17 +1,15 @@
-import { DebugElement, LOCALE_ID } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { FacturePrintComponent } from './facture-print.component';
 import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
 import { ProductService } from 'src/app/services/product.service';
-import { product } from 'src/app/core/models/product.model';
+import { LOCALE_ID } from '@angular/core';
 registerLocaleData(localeFr);
 describe('FacturePrintComponent', () => {
   let component: FacturePrintComponent;
   let fixture: ComponentFixture<FacturePrintComponent>;
   let service: ProductService;
-  let chocolat:product;
   const  product_1= {
     name: 'chocolat ',
     quantity:2,

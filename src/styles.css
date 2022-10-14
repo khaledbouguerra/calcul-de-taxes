@@ -29,3 +29,12 @@ app-facture-print {
       }
     
   }
+
+  div {
+    margin-top:2%
+  }
+
+  .error {
+    border-color: #E91E63;
+    color: #E91E63;
+  }

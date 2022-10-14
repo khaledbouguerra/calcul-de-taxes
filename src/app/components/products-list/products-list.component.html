@@ -26,7 +26,7 @@
                         <span>Prix HT :  {{product.quantity * product.price|currency}}</span>
                       </div>
                       <div class="col-1">
-                        <button class="btn btn-danger btn-sm mx-3 float-right" >x</button>  
+                        <button class="btn btn-danger btn-sm mx-3 float-right" (click)="deleteProduct(product)" >x</button>  
                       </div>
                     </div>
                     </div>
@@ -39,7 +39,7 @@
     <div class="container">
         <div class="clearfix">
             <span class="float-start"> <h3>  TTC : {{producsList?.ttc||0}} </h3></span>
-            <span class="float-end"> <button class="btn btn-success btn-sm mx-6 float-right" (click)="printOutPut()" >Imprimer</button></span>
+            <span class="float-end"> <button class="btn btn-success btn-sm mx-6 float-right" (click)="printOutPut()" [disabled]="!producsList?.products" >Imprimer</button></span>
           </div>
     <div class="row align-items-start">
         <div class="col-10">
