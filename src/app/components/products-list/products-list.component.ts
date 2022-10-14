@@ -27,6 +27,6 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     this.productService.deleteProduct(product)
   }
   ngOnDestroy(): void {
-    //this.subscription.unsubscribe()
+    this.subscription.unsubscribe()
   }
 }

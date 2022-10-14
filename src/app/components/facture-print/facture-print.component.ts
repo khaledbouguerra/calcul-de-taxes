@@ -22,7 +22,7 @@ export class FacturePrintComponent implements OnInit, OnDestroy {
         this.taxes = data.products.reduce((acc: number, product: product) => {
           return acc + product.taxed
         }, 0)
-       //calculating the sum without taxes
+        //calculating the sum without taxes
         this.tht = data.products.reduce((acc: number, product: product) => {
           return acc + (product.price * product.quantity)
         }, 0)
