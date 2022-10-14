@@ -6,4 +6,5 @@ export interface productInterface {
     category: Category;
     isImported: boolean;
     price: number;
+    taxed:number
 }

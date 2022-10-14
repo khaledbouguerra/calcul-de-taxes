@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { product } from 'src/app/core/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
+import {data} from '../../core/interfaces/data'
 
 @Component({
   selector: 'app-products-list',
@@ -11,7 +12,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductsListComponent implements OnInit, OnDestroy {
 
   constructor(private productService: ProductService) { }
-  producsList: any = [];
+  producsList:  data | undefined;
   subscription!: Subscription;
   ngOnInit(): void {
     this.subscription = this.productService._products.subscribe(data => {

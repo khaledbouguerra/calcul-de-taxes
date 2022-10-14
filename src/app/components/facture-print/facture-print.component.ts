@@ -1,17 +1,20 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { product } from 'src/app/core/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
+import {data} from '../../core/interfaces/data'
+
 
 @Component({
   selector: 'app-facture-print',
   templateUrl: './facture-print.component.html',
   styleUrls: ['./facture-print.component.css']
 })
+
 export class FacturePrintComponent implements OnInit, OnDestroy {
-  @Input() products: product[] = []
+
   constructor(private productService: ProductService) { }
-  public producsList: any;
+  public producsList: data | undefined;
   public taxes = 0;
   public tht = 0;
   subscription!: Subscription;

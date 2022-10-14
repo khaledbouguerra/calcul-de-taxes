@@ -12,8 +12,6 @@ interface data {
   providedIn: 'root'
 })
 
-
-
 export class ProductService {
   products: product[] = [];
   private subject = new Subject<data>()
